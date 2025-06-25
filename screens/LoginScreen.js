@@ -10,16 +10,16 @@ export default function LoginScreen(){
     const authCtx = useContext(AuthContext);
 
     async function loginHandler({ email, password }) {
-        console.log('🎯 loginHandler called with:', email, password);
+        
         setIsAuthenticating(true);
         try{
-            console.log('⏳ Calling login...');
+            
             const token = await login(email, password);
-            console.log('✅ Login success, token:', token);
+            
             authCtx.authenticate(token);
             Alert.alert('Success!', 'Login successful!');
         }catch(error){
-            console.log('❌ Login failed:', error.message);
+            
             Alert.alert('Authentication Failed', 'Invalid credentials');
         } finally {
             setIsAuthenticating(false);
